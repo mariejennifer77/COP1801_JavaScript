@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Even or Odd</title>
+</head>
+<body>
+<script>
+    // Loop that counts to 10 and checks if each number is odd or even
+    for (let i = 0; i <= 10; i++) {
+      if (i % 2 === 0) {
+        document.write("Count " + i + " is even<br>");
+      } else {
+        document.write("Count " + i + " is odd<br>");
+      }
+    }
+    
+    document.write("<hr>");
+    
+    // User inputs number between 5 and 20 saved in myNum
+    let myNum = parseInt(prompt("Enter a whole number between 5 and 20:"), 10);
+    let counter = 1;
+    do {
+      document.write("Counter: " + counter + "<br>");
+      counter++;
+    } while (counter <= myNum);  // Loop continues until myNum is reached
+    
+    document.write("<hr>");
+    
+    // Add subjects to an array
+    let subjects = ["Accounting", "Algebra", "Programming", "Art", "Data Analytics"];
+    
+    // Display array values 
+    subjects.forEach(function(subject, index) {
+      document.write("Subject " + (index + 1) + ": " + subject + "<br>");
+    });
+    
+    document.write("<hr>");
+    
+    // Display array values separated by commas 
+    document.write("Subjects: " + subjects.join(", "));
+	//OpenAI. (2023). ChatGPT (Mar 15 version) [Large language model]. Retrieved February 23, 2025, from https://chat.openai.com
+</script>
+</body>
+</html>

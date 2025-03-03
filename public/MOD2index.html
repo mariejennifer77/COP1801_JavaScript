@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Circle Area Calculator</title>
+</head>
+<body>
+
+    <div id="output"></div> <!-- A div to display the results -->
+
+    <script>
+        // Prompt the user for their first name and store it in Fname (use a default fallback)
+        let Fname = prompt("Please enter your first name:") || "Guest";
+
+        // Display a welcome message with the user's name
+        alert("Welcome to our Module 2 JavaScript assignment, " + Fname + "!");
+
+        // Declare a constant for Pi with 7 significant digits
+        const piValue = 3.1415926;
+
+        let myFavNum;
+        
+        // Keep prompting until the user enters a valid positive number
+        while (true) {
+            let userInput = prompt("Please enter your favorite number (must be a positive number):");
+            myFavNum = parseFloat(userInput);
+
+            // Check if input is a valid positive number
+            if (!isNaN(myFavNum) && myFavNum > 0) {
+                break; // Exit the loop if input is valid
+            } else {
+                alert("Invalid input. Please enter a valid positive number.");
+            }
+        }
+
+        // Calculate the area of a circle using the user's favorite number as the radius
+        let myArea = piValue * Math.pow(myFavNum, 2);
+
+        // Create the message to display
+        let message = `
+            <h2>Hello ${Fname},</h2>
+            <p>You entered <strong>${myFavNum}</strong> as your favorite number.</p>
+            <p>If <strong>${myFavNum}</strong> was the radius of a circle, the circle’s area would be <strong>${myArea.toFixed(6)}</strong>.</p>
+        `;
+
+        // Display the message inside the output div 
+        
+        document.getElementById("output").innerHTML = message;
+      //OpenAI. (2025). ChatGPT [Large language model]. https://chatgpt.com
+    </script>
+
+</body>
+</html>
