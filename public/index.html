@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tip Calculator</title>
+</head>
+<body>
+<script type="text/javascript">
+//Funtion that collects user input of service amount between $5.00 and $500.00
+function getAmount() {
+    let amount = parseFloat(prompt("Enter the dollar amount of the service (between $5.00 and $500.00):"));
+//If user enters an invalid amount or outside of parameters set, notify user and save variable as null
+    if (isNaN(amount) || amount < 5 || amount > 500) {
+        alert("Invalid amount. You must enter an amount between $5.00 and $500.00.");
+        return null;
+    } //If amount entered is valid, store in amount variable
+    return amount;
+}
+//Function that collects user input of service quality. Choices are great, ok or poor. Makes sure entries are converted to lower case
+function getQuality() {
+    let quality = prompt("Was the quality of the service 'great', 'ok', or 'poor'?").toLowerCase();
+//If input is not great, ok or poor, notify user and enter null in variable
+    if (quality !== "great" && quality !== "ok" && quality !== "poor") {
+        alert("Invalid quality entered. You must enter 'great', 'ok', or 'poor'.");
+        return null;
+    }
+    //If quality entered is valid, store in quality variable
+    return quality;
+}
+//Using previously entered info, program calculates the amount of the recommended tip adds a failsafe to prevent undefined errors 
+function calculateTip(amount, quality) {
+    let tipPercent = { great: 0.25, ok: 0.15, poor: 0.05 };
+    return amount * (tipPercent[quality] || 0);
+}
+
+//Main logic ensures program ends if variable is equal to null
+let serviceAmount = getAmount();
+
+let serviceQuality = serviceAmount !== null ? getQuality(): null;
+if (serviceAmount !== null && serviceQuality!== null) {
+//Ensures calculate tip function is equal to variable tipAmount
+let tipAmount = calculateTip(serviceAmount, serviceQuality);
+//Inform user of recommended tip amount
+alert(`For an amount of $${serviceAmount.toFixed(2)}, with ${serviceQuality} service, the suggested tip would be $${tipAmount.toFixed(2)}.`);
+//Also prints to console to simplify debugging
+console.log(`For a service amount of $${serviceAmount.toFixed(2)}, with ${serviceQuality} service, the suggested tip would be $${tipAmount.toFixed(2)}.`);
+}//OpenAI. (2025). ChatGPT (Mar. 2 version) [Large language model]. https://openai.com/chatgpt
+</script>
+</body>
+</html>
