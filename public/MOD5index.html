@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fictional Dog Greeting</title>
+</head>
+<body>
+<script type="text/javascript">
+//literal object mydog and his properties
+let mydog = {
+	name: "White Fang",
+	breed: "wolf-dog hybrid",
+	tv_program: "White Fang",
+	notes: "about a dog's journey to domesticaion during the Klondike Gold rush at the end of the 19th century.",
+	my_sound: "I am domesticated, but still very wild."
+};
+//Displays mydog's properties in an organized paragraph
+window.alert ("Hello my name is " + mydog.name + ". " + mydog.my_sound + " I starred in the tv show " + mydog.tv_program + ". " + "I am a " + mydog.breed + ". " + mydog.tv_program + " is " + mydog.notes)
+console.log ("Hello my name is " + mydog.name + ". " + mydog.my_sound + " I starred in the tv show " + mydog.tv_program + ". " + "I am a " + mydog.breed + ". " + mydog.tv_program + " is " + mydog.notes)
+//A different object using a simple constructor and it's properties, including a method to display said properties
+let myDogConst = new Object();
+myDogConst.name = "White Fang";
+myDogConst.breed = "wolf-dog hybrid";
+myDogConst.tv_program = "White Fang";
+myDogConst.notes = "about a dog's journey to domesticaion during the Klondike Gold rush at the end of the 19th century."
+myDogConst.my_sound = "I am domesticated, but still very wild.";
+myDogConst.canTalk = false;
+myDogConst.myGreeting = function() {
+	window.alert ("Hello my name is " + myDogConst.name + ". " + myDogConst.my_sound + " I starred in the tv show " + myDogConst.tv_program + ". " + "I am a " + myDogConst.breed +". " + myDogConst.tv_program + " is " + myDogConst.notes)
+	console.log ("Hello my name is " + myDogConst.name + ". " + myDogConst.my_sound + " I starred in the tv show " + myDogConst.tv_program + ". " + "I am a " + myDogConst.breed +". " + myDogConst.tv_program + " is " + myDogConst.notes)	
+}
+//Calling method that displays properties
+ myDogConst.myGreeting();
+
+
+</script>
+
+</body>
+</html>
