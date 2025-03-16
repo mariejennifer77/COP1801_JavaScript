@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fictional Dogs</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//Dog constructor function
+function Dog(name, breed, tv_program, notes, my_sound, canTalk) {
+this.name = name;
+this.breed = breed;
+this.tv_program = tv_program;
+this.notes = notes;
+this.my_sound = my_sound;
+this.canTalk = canTalk;
+
+//Method to check talking ability
+this.dogTalk = function(){
+	return this.canTalk ? " I can talk! " : " I cannot talk. ";
+		};
+//Method to display organized greeting paragraph 
+		this.myGreeting = function() {
+			let paragraph = "Hello my name is " + this.name + ". " 
+			+ this.dogTalk() + this.my_sound + " I starred in the tv show " 
+			+ this.tv_program + ". " + "I am a " + this.breed 
+			+ ". " + this.tv_program + " is " + this.notes;
+			
+			window.alert(paragraph);
+			console.log(paragraph);
+			};
+}
+			
+		//Dog objects
+		let dog1 = new Dog(		
+		"White Fang",
+		"wolf-dog hybrid",
+		 "White Fang",
+		 "about a dog's journey to domesticaion during the Klondike Gold rush at the end of the 19th century.",
+		"I am domesticated, but still very wild.",
+		false
+		);
+		
+	let dog2 = new Dog(
+			"Scooby-Doo",
+			"Great Dane",
+			"Scooby-Doo where are you",
+			"about a big dog and several teenage humans. Scooby-Doo is the lifelong companion of Shaggy Rogers.",
+			"I am big dog, but scared of everything.",
+			true
+			);
+	
+	let dog3 = new Dog(
+			"Scrappy-Doo",
+			"Great Dane",
+			"Scrappy-Doo",
+			"about Scrappy-Doo and his uncle the cartoon star Scooby-Doo; a big dog and several teenage humans.",
+			"I am a small pup, but I have a big personality",
+			true
+			);
+
+	//Array to hold all dogs
+	let dogs = [dog1, dog2, dog3];
+	
+	//Prompt user for choice
+	let again = true;
+	while (again) {
+	let promptMessage = "Choose which dog you want to learn more about: \n";
+	dogs.forEach(function(dog, index) {
+		promptMessage += (index + 1) + ". " + dog.name + "\n";
+		});
+	//Offer exit option
+		promptMessage += "Press enter or click either button below to exit.";
+	
+	//Store users response
+	let input = prompt(promptMessage);
+	// Recognize whether user wants to continue or exit
+if (input === null || input.trim() === "") {
+	again = false;
+} else { 
+	let chosenNumber = parseInt(input);
+	//Locate selected dog
+	let locateDog = dogs[chosenNumber - 1];
+	//Display chosen dog information
+	if (locateDog) {
+		locateDog.myGreeting();
+		// If the dog property is a function do not display it
+	console.log("Dog details: ")
+	for (let property in locateDog) {
+		if (typeof locateDog[property] !== "function") {
+			console.log(property + ": " + locateDog[property]);
+			}
+		}
+		//If the user enters an invalid response prompt them to try again
+	} else {
+		alert("Sorry, you have entered an invalid selection. Please try again");
+			}}}
+		//OpenAI. (2025). ChatGPT (Mar 16 version) [Large language model]. https://chat.openai.com
+
+</script>
+</body>
+</html>
